@@ -19,14 +19,16 @@
         D3.js setup code
       */
 
+
           "use strict";
           var margin = 75,
               width = 1400 - margin,
               height = 600 - margin;
-debugger;
+
+
           d3.select("body")
             .append("h2")
-            .text("World Cup Attendance")
+            .text("Total Outside Spendings")
 
           var svg = d3.select("body")
             .append("svg")
@@ -40,12 +42,21 @@ debugger;
       */
 
           var myChart = new dimple.chart(svg, data);
-          var x = myChart.addTimeAxis("x", "year"); 
-          myChart.addMeasureAxis("y", "attendance");
+          var x = myChart.addTimeAxis("x", "cycle"); 
+          var y = myChart.addMeasureAxis("y", "type_amount");
+          //var z = myChart.addMeasureAxis('y', 'total')
           x.dateParseFormat = "%Y";
-          x.timeInterval = 4;
-          myChart.addSeries(null, dimple.plot.line);
-          myChart.addSeries(null, dimple.plot.scatter);
+          x.tickFormat = '%Y';
+          x.timeInterval = 2;
+          // stacked bar
+          var s1 = myChart.addSeries('type', dimple.plot.bar);
+          // line
+          //myChart.addSeries('type', dimple.plot.line);
+          //myChart.addSeries(null, dimple.plot.line);
+          
+          // scatter
+          //myChart.addSeries(null, dimple.plot.scatter);
+          //myChart.addSeries('type', dimple.plot.scatter);
           myChart.draw();
         };
       </script>
@@ -53,10 +64,9 @@ debugger;
 <body>
   <script type="text/javascript">
   /*
-    Use D3 (not dimple.js) to load the TSV file
-    and pass the contents of it to the draw function
+    load the CSV file
     */
-  d3.tsv("world_cup.tsv", draw);
+  d3.csv("outside_spending_summary1.csv", draw);
   </script>
 </body>
 </html>
