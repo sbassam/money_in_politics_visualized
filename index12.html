@@ -21,8 +21,8 @@
 
 
           "use strict";
-          var margin = 100,
-              width = 800 - margin,
+          var margin = 75,
+              width = 1400 - margin,
               height = 600 - margin;
 
 
@@ -42,15 +42,13 @@
       */
 
           var myChart = new dimple.chart(svg, data);
-          myChart.setMargins("25%", "10%", "10%", "25%"); 
-          var x = myChart.addMeasureAxis("x", "Total"); 
-          var y = myChart.addCategoryAxis("y", "Sector");
+          var x = myChart.addTimeAxis("x", "cycle"); 
+          var y = myChart.addMeasureAxis("y", "type_amount");
           //var z = myChart.addMeasureAxis('y', 'total')
-          //x.dateParseFormat = "%Y";
-          //x.tickFormat = '%Y';
-          //x.timeInterval = 2;
+          x.dateParseFormat = "%Y";
+          x.tickFormat = '%Y';
+          x.timeInterval = 2;
           // stacked bar
-          y.addOrderRule("Total")
           var s1 = myChart.addSeries('type', dimple.plot.bar);
           // line
           //myChart.addSeries('type', dimple.plot.line);
@@ -68,7 +66,7 @@
   /*
     load the CSV file
     */
-  d3.csv("2009_inaug_by_Sector.csv", draw);
+  d3.csv("outside_spending_summary1.csv", draw);
   </script>
 </body>
 </html>
