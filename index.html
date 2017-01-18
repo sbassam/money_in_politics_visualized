@@ -23,12 +23,12 @@
           "use strict";
           var margin = 100,
               width = 800 - margin,
-              height = 600 - margin;
+              height = 500 - margin;
 
 
           d3.select("body")
             .append("h2")
-            .text("Total Outside Spendings")
+            .text("")
 
           var svg = d3.select("body")
             .append("svg")
@@ -45,13 +45,28 @@
           myChart.setMargins("25%", "10%", "10%", "25%"); 
           var x = myChart.addMeasureAxis("x", "Total"); 
           var y = myChart.addCategoryAxis("y", "Sector");
-          //var z = myChart.addMeasureAxis('y', 'total')
+
+          
           //x.dateParseFormat = "%Y";
           //x.tickFormat = '%Y';
           //x.timeInterval = 2;
           // stacked bar
-          y.addOrderRule("Total")
-          var s1 = myChart.addSeries('type', dimple.plot.bar);
+          // Draw without any axes
+          //y.hidden = true;
+          //sort the bars
+          y.addOrderRule("Total");
+          //remove gridlines
+          x.showGridlines = false;
+
+          //myChart.addColorAxis("c", "#2980b9");
+          myChart.defaultColors = [new dimple.color("#2980b9")];
+          var s1 = myChart.addSeries("Sector", dimple.plot.bar);
+
+          ///s1.addEventHandler("mouseover", function (e) {
+          ///  e.selectedShape.attr("fill", "red"); // Color all bubbles red
+          ///});
+
+
           // line
           //myChart.addSeries('type', dimple.plot.line);
           //myChart.addSeries(null, dimple.plot.line);
@@ -59,7 +74,37 @@
           // scatter
           //myChart.addSeries(null, dimple.plot.scatter);
           //myChart.addSeries('type', dimple.plot.scatter);
+          // Only label bars where the text can fit.
+          s1.afterDraw = function (shape, data) {
+            var s1 = d3.select(shape),
+            rect = {
+              x: parseFloat(s1.attr("x")),
+              y: parseFloat(s1.attr("y")),
+              width: parseFloat(s1.attr("width")),
+              height: parseFloat(s1.attr("height"))
+            };
+            if (rect.height >= 8) {
+              // Add a text label for the value
+              svg.append("text")
+                // Position in the centre of the shape (vertical position is
+                // manually set due to cross-browser problems with baseline)
+                .attr("x", rect.x + rect.width + 25)
+                .attr("y", rect.y + rect.height / 2 + 3.5)
+                // Centre align
+                .style("text-anchor", "middle")
+                .style("font-size", "10px")
+                .style("font-family", "sans-serif")
+                //.style("fill", "red")
+                // Make it a little transparent to tone down the black
+                .style("opacity", 0.6)
+                // Prevent text cursor on hover and allow tooltips
+                .style("pointer-events", "none")
+                // Format the number
+                .text(d3.format(",.1f")(data.xValue/1000) + "k");
+            }
+          };
           myChart.draw();
+          y.shapes.selectAll("path,line").remove();
         };
       </script>
   </head>

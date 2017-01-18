@@ -1,14 +1,14 @@
-Sector,SectorShort,Total,CountOfDonations
-Agribusiness,Ag,228212,42
-Communications/Electronics,CommElec,4256063,300
-Construction,Constr,648967,81
-Defense,Defense,129245,28
-Energy & Natural Resources,Energy,598610,90
-"Finance, Insurance & Real Estate",Finance,9132120,748
-Health,Health,1653460,326
-Ideological/Single-Issue,Ideol,281919,98
-Labor,Labor,25876,15
-Lawyers & Lobbyists,LawLobby,4677543,1149
-Misc Business,Misc Bus,5103156,736
-Other,Other,3483384,863
-Transportation,Transport,250841,41
+Sector,SectorShort,Total,CountOfDonations,Percent
+Agribusiness,Ag,228212,42,0.70%
+Communications/Electronics,CommElec,4256063,300,14.00%
+Construction,Constr,648967,81,2.10%
+Defense,Defense,129245,28,0.40%
+Energy & Natural Resources,Energy,598610,90,2.00%
+"Finance, Insurance & Real Estate",Finance,9132120,748,30.00%
+Health,Health,1653460,326,5.40%
+Ideological/Single-Issue,Ideol,281919,98,0.90%
+Labor,Labor,25876,15,0.10%
+Lawyers & Lobbyists,LawLobby,4677543,1149,15.40%
+Misc Business,Misc Bus,5103156,736,16.70%
+Other,Other,3483384,863,11.40%
+Transportation,Transport,250841,41,0.80%
