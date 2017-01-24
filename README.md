@@ -1,17 +1,14 @@
 
 ##Summary -
 
-This data is from Center For Responsive Ploitics and is for non-commercial use only:
-https://www.opensecrets.org/outsidespending/index.php?type=A
 
-In this project, I'll be improving the first chart on the above page, titled "Outside Spending by Cycle Thru December 18th of Election Year, Excluding Party Committees." This plot shows the following types of spending over time:
+https://www.opensecrets.org/obama/inaug_2009.php
 
--*Independent Expenditures*: "An independent expenditure, in elections in the United States, is a political campaign communication that expressly advocates for the election or defeat of a clearly identified candidate that is not made in cooperation, consultation or concert with or at the request or suggestion of a candidate, candidate’s authorized committee or political party."
--*Communication Costs*: communication costs are internal political messages generally aimed only at the members of a union or organization, or company executives. These may be coordinated with the candidates and can be paid for directly from the organization's treasury.
-Electioneering Communications: The law applies to "electioneering communications," which are defined as
+In this project, I'll be improving the first chart on the above page, titled "Sector Breakdown of Obama Inauguration Donors." 
 
-	broadcast ads (television or radio) airing within 30 days of a primary election or 60 days of a general election that mention or refer to a federal candidate and are aimed at 50,000 or more members of the electorate of the office the candidate is seeking.
-*source: Wikipedia, OpenSecrets.org
+For many reasons, pie chart is not a good choice (most )
+
+NOTE/UPDATE: I happen to work at OpenSecrets.org. Recently, we decided to change the mentioned chart. It used to be a pie chart similar to the one that's currently under it (Top States of Inauguration Donations). 
 
 
 
@@ -42,5 +39,6 @@ PLOT 5 line chart
 PLOT 6 line chart with total line
 ##Resources - list any sources you consulted to create your visualization
 
-
+1) This data is from Center For Responsive Ploitics (OpenSecrets.org) and is for non-commercial use only.
+2) http://dimplejs.org/index.html
 
